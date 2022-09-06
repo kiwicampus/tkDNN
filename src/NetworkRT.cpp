@@ -73,13 +73,13 @@ NetworkRT::NetworkRT(Network *net, const char *name) {
 #endif
         }
 #if NV_TENSORRT_MAJOR >= 5
-        if(net->dla && builderRT->getNbDLACores() > 0) {
-            dtRT = DataType::kHALF;
-            configRT->setFlag(BuilderFlag::kFP16);
-            configRT->setFlag(BuilderFlag::kGPU_FALLBACK);
-            configRT->setDefaultDeviceType(DeviceType::kDLA);
-            configRT->setDLACore(0);
-        }
+        // if(net->dla && builderRT->getNbDLACores() > 0) {
+        //     dtRT = DataType::kHALF;
+        //     configRT->setFlag(BuilderFlag::kFP16);
+        //     configRT->setFlag(BuilderFlag::kGPU_FALLBACK);
+        //     configRT->setDefaultDeviceType(DeviceType::kDLA);
+        //     configRT->setDLACore(0);
+        // }
 #endif
 #if NV_TENSORRT_MAJOR >= 6
         if(net->int8 && builderRT->platformHasFastInt8()){
